@@ -5,6 +5,7 @@ import About from './comp/About';
 import Home from './comp/Home';
 import Products from './comp/Products';
 import Jokes from './comp/Jokes';
+import TVShows from './comp/TVShows';
 import Protected from './comp/Protected';
 
 import {
@@ -17,19 +18,20 @@ import {
 function App() {
   return (
     <div>
-        <NavContainer>
-            <NavItemLink to='/'>Home</NavItemLink>
-            <NavItemLink to='/about'>About</NavItemLink>
-            <NavItemLink to='/products'>Products</NavItemLink>
-            <NavItemLink to = '/jokes'>Jokes</NavItemLink>
-            <NavItemLink to='/protected'>Protected</NavItemLink>
-        
-        </NavContainer>
+        {/* Include Link comp here to show navmenu on every page */}
 
-        <Route exact path='/'><Home /></Route>
-        <Route path='/about' component = {About}/>
-        <Route path='/products'><Products /></Route>
-        <Route path='/protected'><Protected /></Route>
+        <Switch>
+            <Route exact path='/'><Home /></Route>
+            <Route path='/about' component = {About}/>
+            <Route path='/products'><Products /></Route>
+            <Route path='/jokes'><Jokes /></Route>
+            <Route path='/tvshows'><TVShows /></Route>
+            <Route path='/protected'><Protected /></Route>
+        
+        
+        
+        
+        </Switch>
 
 
       { /* Route components are rendered if the path prop matches the current URL */}
@@ -42,5 +44,15 @@ function App() {
 }
 
 export default App;
+
+        // <NavContainer>
+        //     <NavItemLink to='/'>Home</NavItemLink>
+        //     <NavItemLink to='/about'>About</NavItemLink>
+        //     <NavItemLink to='/products'>Products</NavItemLink>
+        //     <NavItemLink to = '/jokes'>Jokes</NavItemLink>
+        //     <NavItemLink to = '/tvshows'>TVshows</NavItemLink>
+        //     <NavItemLink to='/protected'>Protected</NavItemLink>
+        
+        // </NavContainer>
 
       
