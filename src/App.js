@@ -27,11 +27,13 @@ function App() {
             <Route path='/jokes'><Jokes /></Route>
             <Route path='/tvshows'><TVShows /></Route>
             <Route path='/protected'><Protected /></Route>
-        
-        
-        
-        
+
+            <Route path='/jokes/:id'>
+                <p> ONLY renders with matching /jokes/:id path, not seen in any other path </p>
+            
+            </Route>
         </Switch>
+
 
 
       { /* Route components are rendered if the path prop matches the current URL */}
