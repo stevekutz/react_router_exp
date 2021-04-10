@@ -4,31 +4,31 @@ import {BrowserRouter, Route, Link, Switch} from 'react-router-dom';
 import About from './comp/About';
 import Home from './comp/Home';
 import Products from './comp/Products';
-import RenderPropPage from './comp/RenderPropPage';
+import Jokes from './comp/Jokes';
 import Protected from './comp/Protected';
 
-
-// const Home = () => (
-//   <div>
-//     <h2>Home</h2>
-//   </div>
-// );
+import {
+    NavContainer,
+    NavItemLink,
+    
+} from './styles/app_styles';
 
 
 function App() {
   return (
     <div>
-
-        <Link to='/'>Home</Link>
-        <Link to='/about'>About</Link>
-        <Link to='/products'>Products</Link>
-        <Link to = '/renderproppage'>RenderPropPage</Link>
-        <Link to='/protected'>Protected</Link>
+        <NavContainer>
+            <NavItemLink to='/'>Home</NavItemLink>
+            <NavItemLink to='/about'>About</NavItemLink>
+            <NavItemLink to='/products'>Products</NavItemLink>
+            <NavItemLink to = '/jokes'>Jokes</NavItemLink>
+            <NavItemLink to='/protected'>Protected</NavItemLink>
+        
+        </NavContainer>
 
         <Route exact path='/'><Home /></Route>
         <Route path='/about' component = {About}/>
         <Route path='/products'><Products /></Route>
-        <Route path = '/renderproppage' render = { (props) => <RenderPropPage  {...props} />} />
         <Route path='/protected'><Protected /></Route>
 
 
@@ -43,6 +43,4 @@ function App() {
 
 export default App;
 
-            // <Link to = '/' comp = {Home}><Home /></Link>
-            // <Link to = '/about' comp = {About}><About /></Link>
       

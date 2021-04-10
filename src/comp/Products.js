@@ -9,3 +9,8 @@ const Products = () => {
 }
 
 export default Products;
+
+
+
+
+// <Route path = '/renderproppage' render = { (props) => <RenderPropPage  {...props} />} />
