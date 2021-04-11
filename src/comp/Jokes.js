@@ -6,7 +6,7 @@ import {
     JokesContainerDiv,
     JokesListDiv,
     JokesPunchlinetDiv,
-
+    JokeSetupLink,
 
 
 } from '../styles/jokes_styles';
@@ -25,11 +25,11 @@ const Jokes = () => {
                 {jokes.map((joke, index) => {
                     return (
                         <p> 
-                            <Link 
+                            <JokeSetupLink 
                                 key = {joke.id}
                                 to = {`${url}/${joke.id}`}
                             
-                            > {joke.setup}</Link>
+                            > {joke.setup}</JokeSetupLink>
                         </p>
                     )
                 
