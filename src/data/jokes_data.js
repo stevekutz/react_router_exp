@@ -1,4 +1,4 @@
-export const jokes = [
+export const jokes_ten = [
     {
         "id": 1,
         "origid": 378,
