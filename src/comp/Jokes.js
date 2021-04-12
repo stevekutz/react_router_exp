@@ -21,9 +21,9 @@ const Jokes = () => {
     const [yPosition, setYPosition] = useState(0);
 
     const mousePosition = (e) => {
-        console.log(" Y position ", e.clientY)
-        setYPosition(e.clientY);
-    
+        console.log(" Y position ", e)
+        setYPosition((e.pageY - 50));
+
     }
 
 
@@ -52,7 +52,7 @@ const Jokes = () => {
             
             <Route path = {`${url}/:jokeid`}>
                 <JokesPunchlinetDiv 
-                    style = {{ 'margin-top': `${yPosition}px` }}
+                    style = {{ 'marginTop': `${yPosition}px` }}
                 >
                     <Joke jokes = {jokes} yPosition = {yPosition}/>
                 

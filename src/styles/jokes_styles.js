@@ -34,13 +34,13 @@ export const JokesPunchlinetDiv = styled.div`
     border-radius: 10px;
     justify-content: center;
     align-items: center;
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
     width: 50%;
-    height: 10%;
+    height: 5%;
     font-size: 18px;
-    padding: 20px;
-    margin: 10%;
+    padding: 5px;
+    margin: 5%;
 
 `;
 

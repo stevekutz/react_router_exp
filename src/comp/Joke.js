@@ -10,10 +10,12 @@ const Joke = ({jokes, yPosition}) => {
 
     if (joke) {
         jokeInfo = (
-            <div>
-                <h2> Punchline </h2>
-                <p> y: {yPosition.toString()}</p>
-                <p> {joke.punchline} </p>
+            <div style = {{background: 'red'}}>
+                {/*
+                <h2> Punchline y: {yPosition.toString()}</h2>
+                <p>   </p>
+                */}
+                <h4> {joke.punchline} </h4>
             
             </div>
         
