@@ -22,6 +22,7 @@ const Jokes = () => {
 
     const mousePosition = (e) => {
         console.log(" Y position ", e.clientY)
+        setYPosition(e.clientY);
     
     }
 
@@ -30,7 +31,6 @@ const Jokes = () => {
         <JokesContainerDiv>
             <JokesListDiv>
                 <JokesH1> Jokes </JokesH1>
-                <p> Mouse position </p>
                 {jokes.map((joke, index) => {
                     return (
                         <JokeSetupP key = {joke.id}> 
@@ -51,8 +51,10 @@ const Jokes = () => {
 
             
             <Route path = {`${url}/:jokeid`}>
-                <JokesPunchlinetDiv>
-                    <Joke jokes = {jokes}/>
+                <JokesPunchlinetDiv 
+                    style = {{ 'margin-top': `${yPosition}px` }}
+                >
+                    <Joke jokes = {jokes} yPosition = {yPosition}/>
                 
                 
                 </JokesPunchlinetDiv>

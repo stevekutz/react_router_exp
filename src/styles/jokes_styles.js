@@ -36,8 +36,8 @@ export const JokesPunchlinetDiv = styled.div`
     align-items: center;
     display: flex;
     flex-direction: column;
-    width: 30%;
-    // height: 10%;
+    width: 50%;
+    height: 10%;
     font-size: 18px;
     padding: 20px;
     margin: 10%;
