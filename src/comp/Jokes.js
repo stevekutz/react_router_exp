@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Joke from './Joke';
 import {Link, Route, useRouteMatch} from 'react-router-dom';
 import {jokes_ten as jokes} from '../data/jokes_data';
 import {
     JokesContainerDiv,
     JokesListDiv,
+    JokesH1,
     JokesPunchlinetDiv,
     JokeSetupLink,
+    JokeSetupP,
 
 
 } from '../styles/jokes_styles';
@@ -16,21 +18,28 @@ import {
 const Jokes = () => {
 
     const { url } = useRouteMatch();
+    const [yPosition, setYPosition] = useState(0);
+
+    const mousePosition = (e) => {
+        console.log(" Y position ", e.clientY)
+    
+    }
 
 
     return (
         <JokesContainerDiv>
             <JokesListDiv>
-                <h1> Jokes </h1>
+                <JokesH1> Jokes </JokesH1>
+                <p> Mouse position </p>
                 {jokes.map((joke, index) => {
                     return (
-                        <p> 
+                        <JokeSetupP key = {joke.id}> 
                             <JokeSetupLink 
                                 key = {joke.id}
                                 to = {`${url}/${joke.id}`}
-                            
+                                onClick = {mousePosition}
                             > {joke.setup}</JokeSetupLink>
-                        </p>
+                        </JokeSetupP>
                     )
                 
                 
@@ -49,7 +58,7 @@ const Jokes = () => {
                 </JokesPunchlinetDiv>
             </Route>
             <Route exact path = {url}>
-                <p> Ready for the punchline ? </p>
+                <JokesH1> Ready for the punchline ? </JokesH1>
             </Route>
 
         </JokesContainerDiv>

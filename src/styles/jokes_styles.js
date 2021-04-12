@@ -17,8 +17,14 @@ export const JokesListDiv = styled.div`
     display: flex;
     flex-direction: column;
 
-    width: 100%;
+    width: 50%;
 
+`;
+
+export const JokesH1 = styled.h1`
+    border: 1px solid red;
+
+    text-align: center;
 `;
 
 export const JokesPunchlinetDiv = styled.div`
@@ -31,7 +37,7 @@ export const JokesPunchlinetDiv = styled.div`
     display: flex;
     flex-direction: column;
     width: 30%;
-
+    // height: 10%;
     font-size: 18px;
     padding: 20px;
     margin: 10%;
@@ -42,8 +48,14 @@ export const JokeSetupLink = styled(Link)`
     // background: #DCDCDC;
     border: 1px solid black;
     
-    
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
     color: darkslategrey;
+    background: #FAF0E6;
+    border-radius: 5px;
+    box-shadow: 10px 5px 5px #4682B4;
     text-decoration: none;
     padding: 5px;
     margin: 10px;
@@ -52,4 +64,12 @@ export const JokeSetupLink = styled(Link)`
         color: black;  
     
     }
+`;
+
+export const JokeSetupP = styled.p`
+    // background: #B0C4DE;
+
+    display: flex;
+    justify-content: center;
+
 `;
