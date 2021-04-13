@@ -36,17 +36,23 @@ const Joke = ({jokes, yPosition, showPunchline, togglePunchline}) => {
                 // ref = {lastJokePositionRef}
                 >
 
-                <JokeCardSetupP onClick = {togglePunchline}> {joke.setup}</JokeCardSetupP>
+                <JokeCardSetupP 
+                    onMouseOver= {togglePunchline}
+                    onMouseLeave = {togglePunchline}    
+                > {joke.setup}</JokeCardSetupP>
                 {/*
                 <p>   </p>
                 */}
-                {showPunchline && 
-                
+
+               { showPunchline && 
+               
                     <JokeCardPunchlineP
                         showPunchline = {showPunchline}
                     > PunchLine {joke.punchline} </JokeCardPunchlineP>
                 
-                }
+               
+               } 
+ 
                 
             
             </JokeCard>

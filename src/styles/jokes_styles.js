@@ -80,7 +80,16 @@ export const JokeCard = styled.div`
 
     display: flex;
     flex-direction: column;
-`;
+
+    // transition: 1.3s ease-in-out;
+    // right: ${ ({ showPunchline }) => (showPunchline ? '0' : '-1000px')};
+
+    transition: height 2s;
+    
+//     &:hover {
+//         height: 180px;
+//         // top: ${ ({ showPunchline }) => (showPunchline ? '0' : '-1000px')};
+// `;
 
 export const JokeCardSetupP = styled(JokeSetupP)`
     color: darkblue;
@@ -99,6 +108,10 @@ export const JokeCardPunchlineP = styled(JokeCardSetupP)`
     color: blue;
     width: 70%;
 
-    transition: 1.3s ease-in-out;
-    right: ${ ({ showPunchline }) => (showPunchline ? '0' : '-1000px')};
+    
+    &:hover {
+        transition: 1.3s ease-in-out;
+        right: ${ ({ showPunchline }) => (showPunchline ? '0' : '-1000px')};
+    
+    }
 `;
