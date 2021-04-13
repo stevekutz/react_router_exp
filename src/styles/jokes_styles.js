@@ -28,7 +28,7 @@ export const JokesH1 = styled.h1`
     text-align: center;
 `;
 
-export const JokesPunchlinetDiv = styled.div`
+export const JokeDiv = styled.div`
     background: lightyellow;
     
     border: 2px solid blue;
@@ -98,4 +98,7 @@ export const JokeCardPunchlineP = styled(JokeCardSetupP)`
     background: lightblue;
     color: blue;
     width: 70%;
+
+    transition: 1.3s ease-in-out;
+    right: ${ ({ showPunchline }) => (showPunchline ? '0' : '-1000px')};
 `;

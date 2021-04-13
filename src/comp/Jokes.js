@@ -6,7 +6,7 @@ import {
     JokesContainerDiv,
     JokesListDiv,
     JokesH1,
-    JokesPunchlinetDiv,
+    JokeDiv,
     JokeSetupLink,
     JokeSetupP,
 
@@ -23,13 +23,21 @@ const Jokes = () => {
 
     const [yPosition, setYPosition] = useState(currentJokePositionRef | 0);
     
-    const refCB = useCallback(selected => {
-        if(selected) {
-            console.log("HERE ref CB ", selected.focus());
+    // const refCB = useCallback(selected => {
+    //     if(selected) {
+    //         console.log("HERE ref CB ", selected.focus());
         
-        }
+    //     }
     
-    }, []);
+    // }, []);
+
+    const [showPunchline, setShowPunchline] = useState(false);
+
+    const togglePunchline = () => {
+        setShowPunchline(!showPunchline);
+        
+    }
+
 
     const mousePosition = (e) => {
         
@@ -80,16 +88,21 @@ const Jokes = () => {
 
             
             <Route exact path = {`${url}/:jokeid`}>
-                <JokesPunchlinetDiv 
+                <JokeDiv 
                     // style = {{ 'marginTop': `${yPosition + currentJokePositionRef.currrent}px` }}
                     // style = {{ 'marginTop': `${yPosition}px` }}
                     ref = {currentJokePositionRef}
-                    onClick = {refCB}
+                    // onClick = {refCB}
                 >
-                    <Joke jokes = {jokes} yPosition = {yPosition}/>
+                    <Joke 
+                        jokes = {jokes} 
+                        yPosition = {yPosition}
+                        showPunchline = {showPunchline}
+                        togglePunchline = {togglePunchline}    
+                    />
                 
                 
-                </JokesPunchlinetDiv>
+                </JokeDiv>
             </Route>
             <Route exact path = {url}>
                 <JokesH1> Ready for the punchline ? </JokesH1>

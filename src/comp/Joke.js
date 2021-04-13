@@ -9,10 +9,11 @@ import {
 } from '../styles/jokes_styles';
 
 
-const Joke = ({jokes, yPosition}) => {
+const Joke = ({jokes, yPosition, showPunchline, togglePunchline}) => {
     
     const {jokeid} = useParams();
     console.log('jokeid >>>>>>>>>> ', jokeid);
+
 
     const joke = jokes.find( (targetjoke) => targetjoke.id === Number(jokeid));
     let jokeInfo;
@@ -35,11 +36,18 @@ const Joke = ({jokes, yPosition}) => {
                 // ref = {lastJokePositionRef}
                 >
 
-                <JokeCardSetupP> {joke.setup}</JokeCardSetupP>
+                <JokeCardSetupP onClick = {togglePunchline}> {joke.setup}</JokeCardSetupP>
                 {/*
                 <p>   </p>
                 */}
-                <JokeCardPunchlineP> PunchLine {joke.punchline} </JokeCardPunchlineP>
+                {showPunchline && 
+                
+                    <JokeCardPunchlineP
+                        showPunchline = {showPunchline}
+                    > PunchLine {joke.punchline} </JokeCardPunchlineP>
+                
+                }
+                
             
             </JokeCard>
         
