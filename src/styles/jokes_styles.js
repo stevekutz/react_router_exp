@@ -17,6 +17,7 @@ export const JokesListDiv = styled.div`
     display: flex;
     flex-direction: column;
 
+    // height: 4px;
     width: 50%;
 
 `;
@@ -39,8 +40,8 @@ export const JokesPunchlinetDiv = styled.div`
     width: 50%;
     height: 5%;
     font-size: 18px;
-    padding: 5px;
-    margin: 5%;
+    padding: 2px;
+    margin: 1%;
 
 `;
 
@@ -67,9 +68,34 @@ export const JokeSetupLink = styled(Link)`
 `;
 
 export const JokeSetupP = styled.p`
-    // background: #B0C4DE;
+    background: #B0C4DE;
 
     display: flex;
     justify-content: center;
+    margin: 2px;
+`;
 
+export const JokeCard = styled.div`
+    border: 1px solid orange;
+
+    display: flex;
+    flex-direction: column;
+`;
+
+export const JokeCardSetupP = styled(JokeSetupP)`
+    color: darkblue;
+    font-weight: bold;
+    margin: 5px auto;
+    width: 80%;
+    padding: 10px;
+
+    border-radius: 10px;
+`;
+
+export const JokeCardPunchlineP = styled(JokeCardSetupP)`
+
+
+    background: lightblue;
+    color: blue;
+    width: 70%;
 `;

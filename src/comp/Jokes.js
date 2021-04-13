@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useState, useRef, useEffect, useCallback} from 'react';
 import Joke from './Joke';
 import {Link, Route, useRouteMatch} from 'react-router-dom';
 import {jokes_ten as jokes} from '../data/jokes_data';
@@ -18,23 +18,43 @@ import {
 const Jokes = () => {
 
     const { url } = useRouteMatch();
-    const [yPosition, setYPosition] = useState(0);
 
-    // const currentJokePositionRef = useRef();
+    const currentJokePositionRef = useRef();
+
+    const [yPosition, setYPosition] = useState(currentJokePositionRef | 0);
+    
+    const refCB = useCallback(selected => {
+        if(selected) {
+            console.log("HERE ref CB ", selected.focus());
+        
+        }
+    
+    }, []);
 
     const mousePosition = (e) => {
+        
+        if (yPosition !== 0) {
+            currentJokePositionRef.current = yPosition; 
+        }
+
         console.log(" Y position ", e)
         // setYPosition((e.pageY - 50)); // sees mousePosition
         setYPosition(e.clientY - 50);
         console.log('Y position: ', yPosition);
         // console.log("ref says >>> ", currentJokePositionRef);
+
+
     }
 
 
-    // useEffect( () => {
-    //     currentJokePositionRef.current = yPosition; 
-    
-    // }, [yPosition]);
+    useEffect( () => {
+        if (yPosition !== 0) {
+            currentJokePositionRef.current = yPosition; 
+        }
+        // console.log("ref >> ", currentJokePositionRef);
+    }, [yPosition]);
+
+    console.log("ref >> ", currentJokePositionRef);
 
     return (
         <JokesContainerDiv>
@@ -61,8 +81,10 @@ const Jokes = () => {
             
             <Route exact path = {`${url}/:jokeid`}>
                 <JokesPunchlinetDiv 
+                    // style = {{ 'marginTop': `${yPosition + currentJokePositionRef.currrent}px` }}
                     // style = {{ 'marginTop': `${yPosition}px` }}
-                    // ref = {currentJokePositionRef}
+                    ref = {currentJokePositionRef}
+                    onClick = {refCB}
                 >
                     <Joke jokes = {jokes} yPosition = {yPosition}/>
                 

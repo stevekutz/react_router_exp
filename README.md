@@ -35,9 +35,14 @@
         </Switch>
 ~~~
 
-#### `useRouteMatch`
+#### `useRouteMatch` hook
 - React Router uses this hook to access the `match` obj
      - `path` is used for accessing nested routes
      - `url` is used for accessing nested links
      - `isExact` Boolean indicates if entire URL was matched
      - `params` are key-value pairs
+
+#### `useParams` hook
+`- const {jokeid} = useParams();`
+- returns key-value pairs from Joke component
+- `key` is the id

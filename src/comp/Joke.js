@@ -1,36 +1,47 @@
 import React, {useState, useRef, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 
+import {
+    JokeCard,
+    JokeCardSetupP,
+    JokeCardPunchlineP,
+
+} from '../styles/jokes_styles';
+
+
 const Joke = ({jokes, yPosition}) => {
     
     const {jokeid} = useParams();
+    console.log('jokeid >>>>>>>>>> ', jokeid);
+
     const joke = jokes.find( (targetjoke) => targetjoke.id === Number(jokeid));
     let jokeInfo;
     
-    const lastJokePositionRef = useRef();
-    const[yOffset, SetYOffset] = useState(yPosition)
+    // const lastJokePositionRef = useRef();
+    // // const[yOffset, SetYOffset] = useState(yPosition)
+    // const[yOffset, SetYOffset] = useState(lastJokePositionRef.current)
 
-    console.log('yOffset  >>>>> ', yOffset);
+    // console.log('yOffset  >>>>> ', yOffset);
 
-    useEffect( () => {
-        lastJokePositionRef.current = yPosition; 
-        SetYOffset(lastJokePositionRef.current);
-    }, [yPosition]);
+    // useEffect( () => {
+    //     lastJokePositionRef.current = yPosition; 
+    //     SetYOffset(lastJokePositionRef.current);
+    // }, [yPosition]);
 
     if (joke) {
         jokeInfo = (
-            <div 
-                style = {{ 'marginTop': `${yOffset}px`, 'background': 'pink' }}
-                ref = {lastJokePositionRef}
-                //style = {{background: 'red'}}
+            <JokeCard 
+                // style = {{ 'marginTop': `${yOffset}px`, 'background': 'pink' }}
+                // ref = {lastJokePositionRef}
                 >
-                <h2> Punchline y: {yPosition.toString()}</h2>
+
+                <JokeCardSetupP> {joke.setup}</JokeCardSetupP>
                 {/*
                 <p>   </p>
                 */}
-                <h4> {joke.punchline} </h4>
+                <JokeCardPunchlineP> PunchLine {joke.punchline} </JokeCardPunchlineP>
             
-            </div>
+            </JokeCard>
         
         ) 
         
