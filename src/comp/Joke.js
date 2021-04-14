@@ -1,4 +1,7 @@
 import React, {useState, useRef, useEffect} from 'react';
+import {CSSTransition} from 'react-transition-group';
+import './rtc.css';
+
 import { useParams } from 'react-router-dom';
 
 import {
@@ -37,23 +40,27 @@ const Joke = ({jokes, yPosition, showPunchline, togglePunchline}) => {
                 >
 
                 <JokeCardSetupP 
-                    onMouseOver= {togglePunchline}
+                    onMouseEnter= {togglePunchline}
                     onMouseLeave = {togglePunchline}    
                 > {joke.setup}</JokeCardSetupP>
                 {/*
                 <p>   </p>
                 */}
 
-               { showPunchline && 
-               
+
+ 
+               <CSSTransition
+                    in = {showPunchline}
+                    out = {showPunchline}
+                    timeout = {2000}
+                    // classNames = “my-node” 
+                    mountOnEnter unmountOnExit
+               >
                     <JokeCardPunchlineP
                         showPunchline = {showPunchline}
-                    > PunchLine {joke.punchline} </JokeCardPunchlineP>
-                
-               
-               } 
- 
-                
+                        > PunchLine {joke.punchline} 
+                    </JokeCardPunchlineP>
+               </CSSTransition> 
             
             </JokeCard>
         
@@ -75,3 +82,13 @@ const Joke = ({jokes, yPosition, showPunchline, togglePunchline}) => {
 }
 
 export default Joke;
+
+
+            //    { showPunchline && 
+               
+            //         <JokeCardPunchlineP
+            //             showPunchline = {showPunchline}
+            //         > PunchLine {joke.punchline} </JokeCardPunchlineP>
+                
+               
+            //    } 
