@@ -1,0 +1,26 @@
+.setup {
+    background: lightgrey;
+
+
+}
+
+.punchline {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 2s, visibility 2s;
+    position: absolute;
+    background: silver;
+    padding: 10px;
+
+
+}
+
+.setup:hover ~ .punchline {
+    opacity: 1;
+    visibility: visible;
+}
+
+.punchline:hover {
+    opacity: 1;
+    visibility: visible;
+}

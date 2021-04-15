@@ -99,6 +99,15 @@ export const JokeCardSetupP = styled(JokeSetupP)`
     padding: 10px;
 
     border-radius: 10px;
+    // &:hover ~ JokeCardPunchLine {
+
+    //     transition: 1.3s ease-in-out;
+    //     // opacity: 1;
+    //     // opacity: ${ ({ showPunchline }) => (showPunchline ? '0' : '-1000px')};
+    //     opacity: ${ ({ showPunchline }) => (showPunchline ? '1' : '0')};
+    
+    // }
+
 `;
 
 export const JokeCardPunchlineP = styled(JokeCardSetupP)`
@@ -108,10 +117,10 @@ export const JokeCardPunchlineP = styled(JokeCardSetupP)`
     color: blue;
     width: 70%;
 
+    // opacity: 0;
+    // opacity: ${ ({ showPunchline }) => (showPunchline ? '1' : '0')};
     
-    &:hover {
-        transition: 1.3s ease-in-out;
-        right: ${ ({ showPunchline }) => (showPunchline ? '0' : '-1000px')};
-    
-    }
+ 
+
+
 `;
