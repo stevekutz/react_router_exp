@@ -100,12 +100,13 @@ const Jokes = () => {
                         showPunchline = {showPunchline}
                         togglePunchline = {togglePunchline}    
                     />
-                
+
                 
                 </JokeDiv>
             </Route>
             <Route exact path = {url}>
                 <JokesH1> Ready for the punchline ? </JokesH1>
+                
             </Route>
 
         </JokesContainerDiv>

@@ -1,4 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react';
+import jokeface from '../data/img/jokeface.png';
+
 import {CSSTransition} from 'react-transition-group';
 import './rtc.css';
 // import './exp.css';
@@ -10,6 +12,8 @@ import {
     JokeCardSetupP,
     JokeCardPunchlineP,
     PunchlineDiv,
+    ImageContainer,
+    ImageContent,
 
 
 } from '../styles/jokes_styles';
@@ -45,27 +49,34 @@ const Joke = ({jokes, yPosition, showPunchline, togglePunchline}) => {
                 <div> hover on setup to see punchline </div>
 
                 <JokeCardSetupP 
-                    // onMouseEnter= {togglePunchline}
-                    // onMouseLeave = {togglePunchline}    
+                    onMouseEnter= {togglePunchline}
+                    onMouseLeave = {togglePunchline}    
                     // className = "setup"
-                    onClick = {togglePunchline}
+                    // onClick = {togglePunchline}
                 > {joke.setup}</JokeCardSetupP>
-                {/*
-                <p>   </p>
-                */}
-
-
  
 
-                <PunchlineDiv 
-                    showPunchline = {showPunchline}
-                    // className = "punchline"
-                >
-                   {showPunchline ? joke.punchline : ''}
-                </PunchlineDiv> 
+                    <PunchlineDiv 
+                        showPunchline = {showPunchline}
+                        // className = "punchline"
+                    >
+                    {showPunchline ? joke.punchline : ''}
+                        <ImageContainer showPunchline = {showPunchline}
+                        > 
+                            
+                            <ImageContent 
+                                showPunchline = {showPunchline}
+                                src = {jokeface}/>
+                            
+                        </ImageContainer>
+                    </PunchlineDiv> 
 
+                {/*
+                <ImageContainer showPunchline = {showPunchline}> 
+                    <ImageContent src = {jokeface}/>
 
-
+                </ImageContainer>
+                */}    
 
             </JokeCard>
         

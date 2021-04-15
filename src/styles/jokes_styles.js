@@ -24,7 +24,8 @@ export const JokesListDiv = styled.div`
 
 export const JokesH1 = styled.h1`
     border: 1px solid red;
-
+    justify-content: center;
+    // width: 50%;
     text-align: center;
 `;
 
@@ -84,19 +85,23 @@ export const JokeCard = styled.div`
     `;
 
 export const PunchlineDiv = styled.p`
+    
     // opacity: 1;
     // visibility: hidden;
-    transition: opacity 5s, visibility .2s;
+    transition: opacity 5s, visibility .2s ease-in;
     // position: relative;
-    
+    // border: 1px solid deeppink;
+
     display: flex;
     justify-content: center;
+    flex-direction: column;
     
     border-radius: 10px;
     background: lightblue;
     color: blue;
     width: 70%;
     margin: 10px auto;
+    text-align: center;
     
 
     // background: ${props => props.showPunchline ? '#525555' : '#C2C8C7'};
@@ -113,6 +118,7 @@ export const JokeCardSetupP = styled(JokeSetupP)`
     padding: 10px;
 
     border-radius: 10px;
+    text-align: center;
 
 
     // &:hover{
@@ -137,11 +143,48 @@ export const JokeCardPunchlineP = styled(JokeCardSetupP)`
     background: lightblue;
     color: blue;
     width: 70%;
+  
 
     // opacity: 0;
     // opacity: ${ ({ showPunchline }) => (showPunchline ? '1' : '0')};
     
  
 
+
+`;
+
+
+export const ImageContainer = styled.div`
+    // border: 1px solid purple;
+    transition: visibility 5sec;
+    // transition: opacity 5s, visibility 2s ease-in;
+
+    display: flex;
+    // width: 500px;
+    height: 500px;
+    justify-content: center;
+    // align-content: center;
+    // flex-direction: column;
+    margin: 0 auto;
+    border-radius: 10px;
+
+    visibility: ${props => props.showPunchline ? 'visible' : 'hidden'};
+    opacity: ${props => props.showPunchline ? 1 : 0};
+    // padding: ${props => props.showPunchline ? '15px' : '0'};
+    height: ${props => props.showPunchline ? '150px' : '0'};
+
+`;
+
+export const ImageContent = styled.img`
+    border: 1px solid black;
+    height: 100%;
+    // padding: 10px;
+    border-radius: 10px;
+    // transition: visibility 10sec;
+    
+    transition: opacity 10sec, visibility 10sec;
+    visibility: ${props => props.showPunchline ? 'visible' : 'hidden'};
+    opacity: ${props => props.showPunchline ? 1 : 0};
+    // padding: ${props => props.showPunchline ? '15px' : '0'};
 
 `;
