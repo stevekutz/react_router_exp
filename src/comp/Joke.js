@@ -1,7 +1,7 @@
 import React, {useState, useRef, useEffect} from 'react';
 import {CSSTransition} from 'react-transition-group';
 import './rtc.css';
-import './exp.css';
+// import './exp.css';
 
 import { useParams } from 'react-router-dom';
 
@@ -9,6 +9,8 @@ import {
     JokeCard,
     JokeCardSetupP,
     JokeCardPunchlineP,
+    PunchlineDiv,
+
 
 } from '../styles/jokes_styles';
 
@@ -39,11 +41,13 @@ const Joke = ({jokes, yPosition, showPunchline, togglePunchline}) => {
                 // style = {{ 'marginTop': `${yOffset}px`, 'background': 'pink' }}
                 // ref = {lastJokePositionRef}
                 >
+                
+                <div> hover on setup to see punchline </div>
 
                 <JokeCardSetupP 
                     onMouseEnter= {togglePunchline}
                     onMouseLeave = {togglePunchline}    
-                    className = "setup"
+                    // className = "setup"
                 > {joke.setup}</JokeCardSetupP>
                 {/*
                 <p>   </p>
@@ -51,16 +55,17 @@ const Joke = ({jokes, yPosition, showPunchline, togglePunchline}) => {
 
 
  
-               { showPunchline && 
-               
-                    <JokeCardPunchlineP
-                        showPunchline = {showPunchline}
-                        // className = "punchline"
-                    > PunchLine {joke.punchline} </JokeCardPunchlineP>
-                
-               
-               } 
-            
+
+                <PunchlineDiv 
+                    showPunchline = {showPunchline}
+                    // className = "punchline"
+                >
+                   {showPunchline ? joke.punchline : null    }
+                </PunchlineDiv> 
+
+
+
+
             </JokeCard>
         
         ) 

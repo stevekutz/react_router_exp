@@ -81,16 +81,29 @@ export const JokeCard = styled.div`
     display: flex;
     flex-direction: column;
 
-    // transition: 1.3s ease-in-out;
-    // right: ${ ({ showPunchline }) => (showPunchline ? '0' : '-1000px')};
+    `;
 
-    transition: height 2s;
+export const PunchlineDiv = styled.p`
+    // opacity: 1;
+    // visibility: hidden;
+    transition: opacity 2s, visibility 2s;
+    position: relative;
     
-//     &:hover {
-//         height: 180px;
-//         // top: ${ ({ showPunchline }) => (showPunchline ? '0' : '-1000px')};
-// `;
+    display: flex;
+    justify-content: center;
+    
+    border-radius: 10px;
+    background: lightblue;
+    color: blue;
+    width: 70%;
+    margin: 10px auto;
+    padding: 5px;
 
+    // background: ${props => props.showPunchline ? '#525555' : '#C2C8C7'};
+    opacity: ${props => props.showPunchline ? 1 : 0}
+    // visibility: ${props => props.showPunchline ? 'visible' : 'hidden'}
+
+`;
 export const JokeCardSetupP = styled(JokeSetupP)`
     color: darkblue;
     font-weight: bold;
@@ -99,6 +112,13 @@ export const JokeCardSetupP = styled(JokeSetupP)`
     padding: 10px;
 
     border-radius: 10px;
+
+
+    // &:hover{
+    //     opacity: 1;
+    //     visibility: visible;
+    
+    // }
     // &:hover ~ JokeCardPunchLine {
 
     //     transition: 1.3s ease-in-out;

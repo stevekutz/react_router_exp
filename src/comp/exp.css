@@ -1,17 +1,17 @@
 .setup {
     background: lightgrey;
-
-
+    
 }
 
 .punchline {
     opacity: 0;
     visibility: hidden;
     transition: opacity 2s, visibility 2s;
-    position: absolute;
+    position: relative;
     background: silver;
     padding: 10px;
-
+    width: 70%;
+    margin: 10px auto;
 
 }
 
@@ -20,7 +20,7 @@
     visibility: visible;
 }
 
-.punchline:hover {
+/* .punchline:hover {
     opacity: 1;
     visibility: visible;
-}
+} */
