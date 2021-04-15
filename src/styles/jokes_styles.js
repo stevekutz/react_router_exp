@@ -86,8 +86,8 @@ export const JokeCard = styled.div`
 export const PunchlineDiv = styled.p`
     // opacity: 1;
     // visibility: hidden;
-    transition: opacity 2s, visibility 2s;
-    position: relative;
+    transition: opacity 5s, visibility .2s;
+    // position: relative;
     
     display: flex;
     justify-content: center;
@@ -97,11 +97,12 @@ export const PunchlineDiv = styled.p`
     color: blue;
     width: 70%;
     margin: 10px auto;
-    padding: 5px;
+    
 
     // background: ${props => props.showPunchline ? '#525555' : '#C2C8C7'};
-    opacity: ${props => props.showPunchline ? 1 : 0}
-    // visibility: ${props => props.showPunchline ? 'visible' : 'hidden'}
+    opacity: ${props => props.showPunchline ? 1 : 0};
+    visibility: ${props => props.showPunchline ? 'visible' : 'hidden'};
+    padding: ${props => props.showPunchline ? '15px' : '0'};
 
 `;
 export const JokeCardSetupP = styled(JokeSetupP)`

@@ -45,9 +45,10 @@ const Joke = ({jokes, yPosition, showPunchline, togglePunchline}) => {
                 <div> hover on setup to see punchline </div>
 
                 <JokeCardSetupP 
-                    onMouseEnter= {togglePunchline}
-                    onMouseLeave = {togglePunchline}    
+                    // onMouseEnter= {togglePunchline}
+                    // onMouseLeave = {togglePunchline}    
                     // className = "setup"
+                    onClick = {togglePunchline}
                 > {joke.setup}</JokeCardSetupP>
                 {/*
                 <p>   </p>
@@ -60,7 +61,7 @@ const Joke = ({jokes, yPosition, showPunchline, togglePunchline}) => {
                     showPunchline = {showPunchline}
                     // className = "punchline"
                 >
-                   {showPunchline ? joke.punchline : null    }
+                   {showPunchline ? joke.punchline : ''}
                 </PunchlineDiv> 
 
 
