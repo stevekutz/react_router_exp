@@ -13,7 +13,11 @@ import {
 
 } from '../styles/jokes_styles';
 
-
+import {
+    NavContainer,
+    NavItemLink,
+    
+} from '../styles/app_styles';
 
 const Jokes = () => {
 
@@ -67,6 +71,18 @@ const Jokes = () => {
     return (
         <JokesContainerDiv>
             <JokesListDiv>
+
+                <NavContainer>
+                    <NavItemLink to='/'>Home</NavItemLink>
+                    <NavItemLink to='/about'>About</NavItemLink>
+                    <NavItemLink to='/products'>Products</NavItemLink>
+                    <NavItemLink to = '/jokes'>Jokes</NavItemLink>
+                    <NavItemLink to = '/tvshows'>TVshows</NavItemLink>
+                    <NavItemLink to='/protected'>Protected</NavItemLink>
+                </NavContainer>
+
+
+
                 <JokesH1> Jokes </JokesH1>
                 {jokes.map((joke, index) => {
                     return (

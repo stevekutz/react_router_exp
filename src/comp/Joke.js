@@ -60,7 +60,14 @@ const Joke = ({jokes, yPosition, showPunchline, togglePunchline}) => {
                         showPunchline = {showPunchline}
                         // className = "punchline"
                     >
-                    {showPunchline ? joke.punchline : ''}
+
+                    
+                        {showPunchline ? joke.punchline : ''}
+                    
+                    
+                    
+
+
                         <ImageContainer showPunchline = {showPunchline}
                         > 
                             

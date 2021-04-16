@@ -17,6 +17,7 @@ import {
 
 function App() {
   return (
+  <BrowserRouter>
     <div>
         {/* Include Link comp here to show navmenu on every page */}
 
@@ -42,6 +43,11 @@ function App() {
         
 
     </div>
+  
+  
+  
+  
+  </BrowserRouter>
   );
 }
 

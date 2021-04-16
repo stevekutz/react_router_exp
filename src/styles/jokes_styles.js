@@ -84,7 +84,7 @@ export const JokeCard = styled.div`
 
     `;
 
-export const PunchlineDiv = styled.p`
+export const PunchlineDiv = styled.div`
     
     // opacity: 1;
     // visibility: hidden;
@@ -143,11 +143,10 @@ export const JokeCardPunchlineP = styled(JokeCardSetupP)`
     background: lightblue;
     color: blue;
     width: 70%;
-  
+    // padding: 0;
 
-    // opacity: 0;
-    // opacity: ${ ({ showPunchline }) => (showPunchline ? '1' : '0')};
-    
+    padding: ${props => props.showPunchline ? '15px' : '0'};
+    background: ${props => props.showPunchline ? '#525555' : '#C2C8C7'};
  
 
 
@@ -159,6 +158,7 @@ export const ImageContainer = styled.div`
     transition: visibility 5sec;
     // transition: opacity 5s, visibility 2s ease-in;
 
+    transition-delay: 4s;
     display: flex;
     // width: 500px;
     height: 500px;
@@ -172,7 +172,7 @@ export const ImageContainer = styled.div`
     opacity: ${props => props.showPunchline ? 1 : 0};
     // padding: ${props => props.showPunchline ? '15px' : '0'};
     height: ${props => props.showPunchline ? '150px' : '0'};
-
+    margin: ${props => props.showPunchline ? '10px auto' : '0 auto'};
 `;
 
 export const ImageContent = styled.img`
@@ -182,7 +182,8 @@ export const ImageContent = styled.img`
     border-radius: 10px;
     // transition: visibility 10sec;
     
-    transition: opacity 10sec, visibility 10sec;
+    // transition-delay: 4s;
+    // transition: opacity 10sec, visibility 10sec;
     visibility: ${props => props.showPunchline ? 'visible' : 'hidden'};
     opacity: ${props => props.showPunchline ? 1 : 0};
     // padding: ${props => props.showPunchline ? '15px' : '0'};
