@@ -1,27 +1,20 @@
 import React from 'react-router-dom';
+// import {useHistory} from 'react-router-dom';
 
-import {
-    NavContainer,
-    NavItemLink,
+// import {
+//     NavContainer,
+//     NavItemLink,
     
-} from '../styles/home_styles';
+// } from '../styles/nav_styles';
 
+import NavBar from '../comp/Navigation';
 
 const Home = () => {
+
     return (
         <div>
 
-        <NavContainer>
-            <NavItemLink to='/'>Home</NavItemLink>
-            <NavItemLink to='/about'>About</NavItemLink>
-            <NavItemLink to='/products'>Products</NavItemLink>
-            <NavItemLink to = '/jokes'>Jokes</NavItemLink>
-            <NavItemLink to = '/tvshows'>TVshows</NavItemLink>
-            <NavItemLink to='/protected'>Protected</NavItemLink>
-        
-        </NavContainer>
-
-
+            <NavBar />
             Home Page
         </div>   
     )

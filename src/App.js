@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 // import './App.css';
+import React, {useState} from 'react';
 import {BrowserRouter, Route, Link, Switch} from 'react-router-dom';
 import About from './comp/About';
 import Home from './comp/Home';
@@ -15,40 +16,39 @@ import {
 } from './styles/app_styles';
 
 
+
 function App() {
-  return (
-  <BrowserRouter>
-    <div>
-        {/* Include Link comp here to show navmenu on every page */}
-
-        <Switch>
-            <Route exact path='/'><Home /></Route>
-            <Route path='/about' component = {About}/>
-            <Route path='/products'><Products /></Route>
-            <Route path='/jokes'><Jokes /></Route>
-            <Route path='/tvshows'><TVShows /></Route>
-            <Route path='/protected'><Protected /></Route>
-
-            <Route path='/jokes/:id'>
-                <p> ONLY renders with matching /jokes/:id path, not seen in any other path </p>
-            
-            </Route>
-        </Switch>
 
 
 
-      { /* Route components are rendered if the path prop matches the current URL */}
-      
-      
+    return (
+        <BrowserRouter>
+            <div>
+                {/* Include Link comp here to show navmenu on every page */}
+
+                <Switch>
+                    <Route exact path='/'><Home /></Route>
+                    <Route path='/about' component = {About}/>
+                    <Route path='/products'><Products /></Route>
+                    <Route path='/jokes'><Jokes /></Route>
+                    <Route path='/tvshows'><TVShows /></Route>
+                    <Route path='/protected' ><Protected /></Route>
+
+                    <Route path='/jokes/:id'>
+                        <p> ONLY renders with matching /jokes/:id path, not seen in any other path </p>
+                    
+                    </Route>
+                </Switch>
+
+
+
+            { /* Route components are rendered if the path prop matches the current URL */}
+
+            </div>
         
-
-    </div>
-  
-  
-  
-  
-  </BrowserRouter>
-  );
+        
+        </BrowserRouter>
+    );
 }
 
 export default App;

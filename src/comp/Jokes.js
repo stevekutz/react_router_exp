@@ -1,4 +1,5 @@
 import React, {useState, useRef, useEffect, useCallback} from 'react';
+import NavBar from '../comp/Navigation';
 import Joke from './Joke';
 import {Link, Route, useRouteMatch} from 'react-router-dom';
 import {jokes_ten as jokes} from '../data/jokes_data';
@@ -13,11 +14,13 @@ import {
 
 } from '../styles/jokes_styles';
 
-import {
-    NavContainer,
-    NavItemLink,
+
+
+// import {
+//     NavContainer,
+//     NavItemLink,
     
-} from '../styles/app_styles';
+// } from '../styles/app_styles';
 
 const Jokes = () => {
 
@@ -72,14 +75,7 @@ const Jokes = () => {
         <JokesContainerDiv>
             <JokesListDiv>
 
-                <NavContainer>
-                    <NavItemLink to='/'>Home</NavItemLink>
-                    <NavItemLink to='/about'>About</NavItemLink>
-                    <NavItemLink to='/products'>Products</NavItemLink>
-                    <NavItemLink to = '/jokes'>Jokes</NavItemLink>
-                    <NavItemLink to = '/tvshows'>TVshows</NavItemLink>
-                    <NavItemLink to='/protected'>Protected</NavItemLink>
-                </NavContainer>
+                <NavBar />
 
 
 
