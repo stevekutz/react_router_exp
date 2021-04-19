@@ -1,5 +1,5 @@
-import React, {useState, useRef} from 'react';
-import {useHistory} from 'react-router-dom';
+import React, {useState, useRef, useEffect} from 'react';
+import {useHistory, useLocation} from 'react-router-dom';
 
 import {    
     NavContainer,
@@ -10,35 +10,61 @@ import {
 const NavBar = () => {
 
     const history = useHistory();
+    const location = useLocation();
     const [historyLog, setHistoryLog] = useState([])
 
-    const logger = (e) => {
+    const logger = () => {
 
-        let currentPath = e.target.attributes[1].value;
+        // let currentPath = e.target.attributes[1].value;
 
-        console.log('ROUTE CHANGED', currentPath);
+        // console.log('ROUTE CHANGED', currentPath);
         // console.log('ROUTE CHANGED', e);
-        setHistoryLog(orig => [...orig, historyLog.push(currentPath)]);
+
+        console.log(' LOCATION >> ', location);    
+        // setHistoryLog(orig => [...orig, history.location.pathname]);
+        setHistoryLog(orig => [...orig, location.pathname]);
 
     }
+
+    // console.log(" useHistory() obj >>>>>> ", history);
+    // console.log(" useHistory() pathname >> ", history.location.pathname );
+    // console.log("useLocation >>>>>>  ", location.pathname);
+
+    useEffect( () => {
+    
+        // console.log(" useHistory() obj >>>>>> ", history);
+        console.log(" useHistory() pathname >> ", history.location.pathname );
+        console.log("useLocation >>>>>>  ", location.pathname);
+        setHistoryLog(orig => [...orig, location.pathname]);
+
+    }, [location]);
+
+
 
     return (
         <div>
             <NavContainer  
-        
-            onClick = {(e) => logger(e)}
+
+            // onClick = {(e) => logger(e)}
+            onClick = {logger}
+            // onClick = {() => logger()}
         >
             <NavItemLink to='/'>Home</NavItemLink>
             <NavItemLink to='/about'>About</NavItemLink>
             <NavItemLink to='/products'>Products</NavItemLink>
             <NavItemLink to = '/jokes'>Jokes</NavItemLink>
             <NavItemLink to = '/tvshows'>TVshows</NavItemLink>
+            <NavItemLink to = '/fruits'> Fruits</NavItemLink>
             <NavItemLink to='/protected'>Protected</NavItemLink>
         
         </NavContainer>
 
-        <button onClick = {() => history.push('/about')}> goto About page</button>
+        <button onClick = {() => {
+            history.push('/about');
+            logger();
+            }  }> goto About page</button>
         
+
         <div> {historyLog.toString()}</div>    
         
         </div>

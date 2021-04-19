@@ -7,14 +7,14 @@ import React from 'react-router-dom';
     
 // } from '../styles/nav_styles';
 
-import NavBar from '../comp/Navigation';
+// import NavBar from '../comp/Navigation';
 
 const Home = () => {
 
     return (
         <div>
 
-            <NavBar />
+            
             Home Page
         </div>   
     )

@@ -1,5 +1,5 @@
 import React, {useState, useRef, useEffect, useCallback} from 'react';
-import NavBar from '../comp/Navigation';
+// import NavBar from '../comp/Navigation';
 import Joke from './Joke';
 import {Link, Route, useRouteMatch} from 'react-router-dom';
 import {jokes_ten as jokes} from '../data/jokes_data';
@@ -75,7 +75,6 @@ const Jokes = () => {
         <JokesContainerDiv>
             <JokesListDiv>
 
-                <NavBar />
 
 
 
