@@ -8,15 +8,27 @@ import grape from '../data/img/grape.jpg';
 
 const Fruit = () => {
 
+    // searches dynamic portion of      path = {`${path}/:fruitType`}> and return obj with key:value pair
+    // the key will be fruitType and value is dynamically rendered path parameter
+    // e.g. fruitType: 'apple'
     const {fruitType} = useParams();
+
+    let params = useParams();
+
+    console.log('params ', params);
+    console.log(' params.fruitType',  params.fruitType);  // e.g. banana
 
     const [optionVal, setOptionVal] = useState('contain');
 
     const changeOption = (e) => {
-        console.log(' e says ++ ', Object.keys(e.target.value));
+        // console.log(' e says ++ ', Object.keys(e.target.value));
         setOptionVal(e.target.value);
     }
 
+    useEffect ( () => {
+        document.title = `ON ${fruitType} page`;
+    
+    }, [fruitType]);  // using []   DOES NOT update tab title
 
     return (
         <div>
@@ -69,8 +81,15 @@ const Fruit = () => {
 
 const Fruits = () => {
 
+    // returns closest matching route of component or parents without actually rendering the route
     const {url, path} = useRouteMatch();
 
+
+    const matched = useRouteMatch();
+    console.log(' matched  ', matched);
+    
+    console.log(' url routeMatch', url);
+    console.log(' path routeMatch', path);
 
     return (
         <div>

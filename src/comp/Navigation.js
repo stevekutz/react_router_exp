@@ -21,10 +21,17 @@ const NavBar = () => {
         // console.log('ROUTE CHANGED', e);
 
         console.log(' LOCATION >> ', location);    
-        // setHistoryLog(orig => [...orig, history.location.pathname]);
-        setHistoryLog(orig => [...orig, location.pathname]);
+        setHistoryLog(orig => [...orig, history.location.pathname]);
+        // setHistoryLog(orig => [...orig, location.pathname]);
 
     }
+
+    const clearLogger = () => {
+        setHistoryLog([])
+    
+
+    } 
+
 
     // console.log(" useHistory() obj >>>>>> ", history);
     // console.log(" useHistory() pathname >> ", history.location.pathname );
@@ -33,11 +40,11 @@ const NavBar = () => {
     useEffect( () => {
     
         // console.log(" useHistory() obj >>>>>> ", history);
-        console.log(" useHistory() pathname >> ", history.location.pathname );
-        console.log("useLocation >>>>>>  ", location.pathname);
+        // console.log(" useHistory() pathname >> ", history.location.pathname );
+        // console.log("useLocation >>>>>>  ", location.pathname);
         setHistoryLog(orig => [...orig, location.pathname]);
 
-    }, [location]);
+    }, []);  //  [] tells causes only 1 renering after intial rendering
 
 
 
@@ -46,8 +53,8 @@ const NavBar = () => {
             <NavContainer  
 
             // onClick = {(e) => logger(e)}
-            onClick = {logger}
-            // onClick = {() => logger()}
+            // onClick = {logger}
+            onClick = {() => logger()}
         >
             <NavItemLink to='/'>Home</NavItemLink>
             <NavItemLink to='/about'>About</NavItemLink>
@@ -55,6 +62,7 @@ const NavBar = () => {
             <NavItemLink to = '/jokes'>Jokes</NavItemLink>
             <NavItemLink to = '/tvshows'>TVshows</NavItemLink>
             <NavItemLink to = '/fruits'> Fruits</NavItemLink>
+            <NavItemLink to = '/todos'> Todos </NavItemLink>
             <NavItemLink to='/protected'>Protected</NavItemLink>
         
         </NavContainer>
@@ -64,7 +72,7 @@ const NavBar = () => {
             logger();
             }  }> goto About page</button>
         
-
+        <button onClick = {clearLogger}> clear route log </button>
         <div> {historyLog.toString()}</div>    
         
         </div>
