@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-import {Link, Route, useParams, useRouteMatch} from 'react-router-dom';
+import {Link, Switch, Route, useParams, useRouteMatch} from 'react-router-dom';
 
 import apple from '../data/img/apple.jpg';
 import banana from '../data/img/banana.jpg';

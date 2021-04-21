@@ -39,10 +39,11 @@ function App() {
                     <Route path='/tvshows'><TVShows /></Route>
                     <Route path='/protected' ><Protected /></Route>
                     <Route path='/fruits'> <Fruits />  </Route>
-                    <Route path='/jokes/:id'>
+{/*                    <Route path='/jokes/:id'>
                         <p> ONLY renders with matching /jokes/:id path, not seen in any other path </p>
                     
                     </Route>
+*/}
                 </Switch>
 
 

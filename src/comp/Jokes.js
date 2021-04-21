@@ -1,7 +1,7 @@
 import React, {useState, useRef, useEffect, useCallback} from 'react';
 // import NavBar from '../comp/Navigation';
 import Joke from './Joke';
-import {Link, Route, useRouteMatch} from 'react-router-dom';
+import {Link, Switch, Route, useRouteMatch, useParams} from 'react-router-dom';
 import {jokes_ten as jokes} from '../data/jokes_data';
 import {
     JokesContainerDiv,
@@ -99,6 +99,9 @@ const Jokes = () => {
 
             
             <Route exact path = {`${url}/:jokeid`}>
+                    
+                        <p> ONLY renders with matching /jokes/:id path, not seen in any other path </p>
+                    
                 <JokeDiv 
                     // style = {{ 'marginTop': `${yPosition + currentJokePositionRef.currrent}px` }}
                     // style = {{ 'marginTop': `${yPosition}px` }}
@@ -120,6 +123,8 @@ const Jokes = () => {
                 
             </Route>
 
+                        <p>  jokeid dynamical path {(`${url}/:jokeid`)}</p>
+            
         </JokesContainerDiv>
     )
 }

@@ -28,6 +28,7 @@ const Joke = ({jokes, yPosition, showPunchline, togglePunchline}) => {
     const joke = jokes.find( (targetjoke) => targetjoke.id === Number(jokeid));
     let jokeInfo;
     
+    console.log('joke found')
     // const lastJokePositionRef = useRef();
     // // const[yOffset, SetYOffset] = useState(yPosition)
     // const[yOffset, SetYOffset] = useState(lastJokePositionRef.current)
