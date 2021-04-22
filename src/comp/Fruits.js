@@ -88,8 +88,8 @@ const Fruits = () => {
     const matched = useRouteMatch();
     console.log(' matched  ', matched);
     
-    console.log(' url routeMatch', url);
-    console.log(' path routeMatch', path);
+    console.log(' url routeMatch', url);  // routeMatch /fruits
+    console.log(' path routeMatch', path);  // routeMatch /fruits
 
     return (
         <div>

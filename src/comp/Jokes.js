@@ -1,6 +1,6 @@
 import React, {useState, useRef, useEffect, useCallback} from 'react';
 // import NavBar from '../comp/Navigation';
-import Joke from './Joke';
+// import Joke from './Joke';
 import {Link, Switch, Route, useRouteMatch, useParams} from 'react-router-dom';
 import {jokes_ten as jokes} from '../data/jokes_data';
 import {
@@ -14,6 +14,17 @@ import {
 
 } from '../styles/jokes_styles';
 
+
+const Joke = ({jokes, yPosition, showPunchline, togglePunchline}) => {
+    
+    const {jokeid} = useParams();
+    console.log('jokeid >>>>>>>>>> ', jokeid);
+
+    return (
+        <div> SHOW ME </div>
+    )
+
+}    
 
 
 // import {
@@ -52,10 +63,10 @@ const Jokes = () => {
             currentJokePositionRef.current = yPosition; 
         }
 
-        console.log(" Y position ", e)
+        // console.log(" Y position ", e)
         // setYPosition((e.pageY - 50)); // sees mousePosition
         setYPosition(e.clientY - 50);
-        console.log('Y position: ', yPosition);
+        // console.log('Y position: ', yPosition);
         // console.log("ref says >>> ", currentJokePositionRef);
 
 
@@ -69,7 +80,7 @@ const Jokes = () => {
         // console.log("ref >> ", currentJokePositionRef);
     }, [yPosition]);
 
-    console.log("ref >> ", currentJokePositionRef);
+    // console.log("ref >> ", currentJokePositionRef);
 
     return (
         <JokesContainerDiv>
@@ -83,7 +94,7 @@ const Jokes = () => {
                     return (
                         <JokeSetupP key = {joke.id}> 
                             <JokeSetupLink 
-                                key = {joke.id}
+                                // key = {joke.id}
                                 to = {`${url}/${joke.id}`}
                                 onClick = {mousePosition}
                             > {joke.setup}</JokeSetupLink>
@@ -97,33 +108,32 @@ const Jokes = () => {
             </JokesListDiv>
 
 
+    <Switch>            
+        <Route exact path = {url}>
+            <JokesH1> Ready for the punchline ? </JokesH1>
             
-            <Route exact path = {`${url}/:jokeid`}>
-                    
-                        <p> ONLY renders with matching /jokes/:id path, not seen in any other path </p>
-                    
-                <JokeDiv 
-                    // style = {{ 'marginTop': `${yPosition + currentJokePositionRef.currrent}px` }}
-                    // style = {{ 'marginTop': `${yPosition}px` }}
-                    ref = {currentJokePositionRef}
-                    // onClick = {refCB}
-                >
-                    <Joke 
-                        jokes = {jokes} 
-                        yPosition = {yPosition}
-                        showPunchline = {showPunchline}
-                        togglePunchline = {togglePunchline}    
-                    />
-
+        </Route>
+        <Route path = {`${url}/:jokeid`}>
                 
-                </JokeDiv>
-            </Route>
-            <Route exact path = {url}>
-                <JokesH1> Ready for the punchline ? </JokesH1>
+                    <p> ONLY renders with matching /jokes/:id path, not seen in any other path </p>
                 
-            </Route>
+            <JokeDiv 
+                // style = {{ 'marginTop': `${yPosition + currentJokePositionRef.currrent}px` }}
+                // style = {{ 'marginTop': `${yPosition}px` }}
+                ref = {currentJokePositionRef}
+                // onClick = {refCB}
+            >
+                <Joke 
+                    jokes = {jokes} 
+                    yPosition = {yPosition}
+                    showPunchline = {showPunchline}
+                    togglePunchline = {togglePunchline}    
+                />
 
-                        <p>  jokeid dynamical path {(`${url}/:jokeid`)}</p>
+            
+            </JokeDiv>
+        </Route>
+    </Switch>            
             
         </JokesContainerDiv>
     )
