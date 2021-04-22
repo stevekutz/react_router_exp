@@ -9,6 +9,7 @@ import Products from './comp/Products';
 import Jokes from './comp/Jokes';
 import TVShows from './comp/TVShows';
 import Fruits from './comp/Fruits';
+import Todos from './comp/Todos';
 import Protected from './comp/Protected';
 
 import {
@@ -39,6 +40,7 @@ function App() {
                     <Route path='/tvshows'><TVShows /></Route>
                     <Route path='/protected' ><Protected /></Route>
                     <Route path='/fruits'> <Fruits />  </Route>
+                    <Route path = '/todos'> <Todos /> </Route>
 {/*                    <Route path='/jokes/:id'>
                         <p> ONLY renders with matching /jokes/:id path, not seen in any other path </p>
                     

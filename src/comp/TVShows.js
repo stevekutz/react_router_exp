@@ -14,20 +14,28 @@ const TVshow = (props) => {
     // console.log(' history >> ', history);
 
 
-    const backToList = () => {
+    // const backToList = () => {
     
-        props.toggleLinks();
-        history.push('/tvshows')
+    //     props.toggleShowLinks();
+    //     history.push('/tvshows')
     
-    }
+    // }
 
     return (
         <div>
             Show ID is {showID}
-        <button
-            // onClick = {() => history.push('/tvshows')}
-            onClick = {backToList}
-        > back to TV Show list </button>
+
+            {/*
+            <button
+                // onClick = {() => history.push('/tvshows')}
+                onClick = {backToList}
+            > back to TV Show list </button>
+            */}
+
+            <Link 
+                to = '/tvshows'
+                onClick = {props.toggleShowLinks}    
+                > TV Show List </Link>
 
         </div>
     )
@@ -47,7 +55,7 @@ const TVShows = () => {
     console.log('url', url);
 
 
-    const toggleLinks = () => {
+    const toggleShowLinks = () => {
         setShowLinks(!showLinks)
     
     }
@@ -68,7 +76,7 @@ const TVShows = () => {
                     <div key = {show.id}>
                         <Link 
                             to = {`${url}/${show.id}`}
-                            onClick = {toggleLinks}
+                            onClick = {toggleShowLinks}
                         > {show.name} {show.id}</Link>
 
                     </div>
@@ -80,7 +88,7 @@ const TVShows = () => {
             <Route exact path = {url}></Route>
 
             <Route path = {`${url}/:showID`}>
-                <TVshow toggleLinks = {toggleLinks}/>
+                <TVshow toggleShowLinks = {toggleShowLinks}/>
             </Route>
         
         
