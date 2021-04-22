@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {Link, Switch, useHistory, useLocation, useRouteMatch, Route, useParams} from 'react-router-dom'
 import {tvShowData as tvData, tvShowData} from '../data/tvshows_data';
 
@@ -6,6 +6,7 @@ const TVshow = (props) => {
 
     const {showID} = useParams();
     const history  = useHistory();
+
 
     // const show = tvShowData.find( s => s.id === Number(showID)); 
 
@@ -34,8 +35,8 @@ const TVshow = (props) => {
 
             <Link 
                 to = '/tvshows'
-                onClick = {backToList}
-                // onClick = {props.toggleShowLinks}    
+                // onClick = {backToList}
+                onClick = {props.toggleShowLinks}    
                 // onClick = {props.setShowLinks(true)}
                 > TV Show List </Link>
 
@@ -52,9 +53,12 @@ const TVShows = () => {
     const [showLinks, setShowLinks] = useState(true);
 
     const history  = useHistory();
-    console.log(' history >> ', history);
+    const location = useLocation();
+    // console.log(' history >> ', history);
+    console.log(' location >> ', location.pathname);
 
-    console.log('url', url);
+    // console.log('url', url);
+
 
 
     const toggleShowLinks = () => {
@@ -62,10 +66,16 @@ const TVShows = () => {
     
     }
 
-    // useEffect( () => {
-    //     console.log("RETURN to TVSHOWS ")
+    useEffect( () => {
+        
+        if (location.pathname === '/tvshows') {
+            // console.log("RETURN to TVSHOWS ");
+            setShowLinks(true);
+
+        
+        }
     
-    // },[url])
+    },[location]);
 
 // {showLinks && tvData.map( (show) => {
 
@@ -100,7 +110,9 @@ const TVShows = () => {
                         <Link 
                             
                             to = {`${url}/${show.id}`}
+                            // onClick = {setShowLinks(false)}
                             onClick = {toggleShowLinks}
+                            // onClick = {setShowLinks(true)}
                             // showLinks = {showLinks}
                             // setShowLinks = {setShowLinks}
                         > {show.name} {show.id}</Link>
@@ -113,7 +125,7 @@ const TVShows = () => {
         <Switch>
             <Route exact path = {url}></Route>
 
-            <Route path = {`${url}/:showID`}>
+            <Route exact path = {`${url}/:showID`}>
                 <TVshow 
                     toggleShowLinks = {toggleShowLinks}
                     setShowLinks = {setShowLinks}
