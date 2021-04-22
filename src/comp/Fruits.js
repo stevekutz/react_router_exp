@@ -11,7 +11,9 @@ const Fruit = () => {
     // searches dynamic portion of      path = {`${path}/:fruitType`}> and return obj with key:value pair
     // the key will be fruitType and value is dynamically rendered path parameter
     // e.g. fruitType: 'apple'
-    const {fruitType} = useParams();
+    
+    // const {fruitType} = useParams();
+    const fruitType = useParams().fruitType;
 
     let params = useParams();
 

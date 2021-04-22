@@ -14,27 +14,29 @@ const TVshow = (props) => {
     // console.log(' history >> ', history);
 
 
-    // const backToList = () => {
+    const backToList = () => {
     
-    //     props.toggleShowLinks();
-    //     history.push('/tvshows')
+        props.toggleShowLinks();
+        // history.push('/tvshows')
+        history.goBack();
     
-    // }
+    }
 
     return (
         <div>
             Show ID is {showID}
 
-            {/*
             <button
                 // onClick = {() => history.push('/tvshows')}
                 onClick = {backToList}
             > back to TV Show list </button>
-            */}
+
 
             <Link 
                 to = '/tvshows'
-                onClick = {props.toggleShowLinks}    
+                onClick = {backToList}
+                // onClick = {props.toggleShowLinks}    
+                // onClick = {props.setShowLinks(true)}
                 > TV Show List </Link>
 
         </div>
@@ -56,7 +58,7 @@ const TVShows = () => {
 
 
     const toggleShowLinks = () => {
-        setShowLinks(!showLinks)
+        setShowLinks(!showLinks);
     
     }
 
@@ -65,18 +67,42 @@ const TVShows = () => {
     
     // },[url])
 
+// {showLinks && tvData.map( (show) => {
+
+    tvData.sort((a,b) => {
+    
+        let aName = a.name.toLowerCase();
+        let bName = b.name.toLowerCase();
+
+        if (aName < bName) {
+            return -1;
+        }
+        
+        if (aName > bName) {
+            return 1;
+        }
+
+        return 0;
+
+    })
+
+    // console.log("sortedArr ", sortArr);
 
     return (
         <div>
             TVShows
-            
             {showLinks && tvData.map( (show) => {
   
                 return (
-                    <div key = {show.id}>
+                    <div 
+                        key = {show.id}
+                        >
                         <Link 
+                            
                             to = {`${url}/${show.id}`}
                             onClick = {toggleShowLinks}
+                            // showLinks = {showLinks}
+                            // setShowLinks = {setShowLinks}
                         > {show.name} {show.id}</Link>
 
                     </div>
@@ -88,7 +114,10 @@ const TVShows = () => {
             <Route exact path = {url}></Route>
 
             <Route path = {`${url}/:showID`}>
-                <TVshow toggleShowLinks = {toggleShowLinks}/>
+                <TVshow 
+                    toggleShowLinks = {toggleShowLinks}
+                    setShowLinks = {setShowLinks}
+                />
             </Route>
         
         
