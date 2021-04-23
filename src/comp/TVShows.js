@@ -104,13 +104,17 @@ const TVShows = () => {
 
     return (
         <div className = 'main-container'>
-            <h1 className = 'title'> TVShows </h1>
-            <div className = 'search-bar'> 
-                <h2 className = 'search-bar'>
-                    Search Bar 
-                </h2>
-            </div>
+
+            {showLinks && 
+                <div className = 'search-bar'> 
+                <h1 className = 'title'> TVShows </h1>
+                    <h2 className = 'search-bar'>
+                        Search Bar 
+                    </h2>
+                </div>
+                
             
+            }
                 <div className = 'movie-container'>
             {showLinks && tvData.map( (show) => {
                 
