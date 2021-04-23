@@ -10,12 +10,45 @@
     border: 1px solid blue;
     color: red;
     text-align: center;
+    margin: 0;
 }
 
-.search-bar {
+.header-container {
+    border: 5px solid pink;
+
+    width: 50%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.search-container {
+    border: 1px solid seagreen;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.search-title {
     border: 1px solid brown;
     text-align: center;
+
+
 }
+
+.input-search {
+    border: 1px solid darkslategray;
+    border-radius: 5px;
+
+    outline-style: none;
+}
+
+.button-clear {
+    height: 50%;
+    /* margin: 5px; */
+}
+
 .movie-container {
     border: 1px solid green;
 

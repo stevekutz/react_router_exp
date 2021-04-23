@@ -53,6 +53,8 @@ const TVShows = () => {
     const { url } = useRouteMatch();
 
     const [showLinks, setShowLinks] = useState(true);
+    const [searchVal, setSearchVal] = useState('');
+
 
     const history  = useHistory();
     // const location = useLocation();
@@ -106,11 +108,22 @@ const TVShows = () => {
         <div className = 'main-container'>
 
             {showLinks && 
-                <div className = 'search-bar'> 
-                <h1 className = 'title'> TVShows </h1>
-                    <h2 className = 'search-bar'>
-                        Search Bar 
-                    </h2>
+                <div className = 'header-container'> 
+                    <h1 className = 'title'> TVShows </h1>
+                    <div className = 'search-container'> 
+                        <div className = 'search-title'> Search </div>
+                        
+                        <input
+                            type = 'text'
+                            className = 'input-search'
+                            value = {searchVal}
+                            onChange = {(e) => setSearchVal(e.target.value) }
+                        />
+                        <button 
+                            className = 'button-clear'
+                            onClick = {() => {setSearchVal('')}}
+                    > Clear </button>
+                    </div>
                 </div>
                 
             
