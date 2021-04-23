@@ -53,7 +53,7 @@ const TVShows = () => {
     const { url } = useRouteMatch();
 
     const [showLinks, setShowLinks] = useState(true);
-    const [searchVal, setSearchVal] = useState('');
+    const [searchVal, setSearchVal] = useState(null);
 
 
     const history  = useHistory();
@@ -129,28 +129,40 @@ const TVShows = () => {
             
             }
                 <div className = 'movie-container'>
-            {showLinks && tvData.map( (show) => {
-                
-                
-                return (
-                    <div                         
-                        key = {show.id}
+            {showLinks && tvData
+                .filter( (data) => {
+
+                       if (searchVal === null) {
+                            return data
+                        }
+                        else if (data.name.toLowerCase().includes(searchVal.toLowerCase()) ) {
+                            return data                            
+                        } 
                         
-                    >
-                        <Link 
-                            
-                            to = {`${url}/${show.id}`}
-                            // onClick = {setShowLinks(false)}
-                            onClick = {toggleShowLinks}
-                            className = 'movie-card'
-                            // onClick = {setShowLinks(true)}
-                            // showLinks = {showLinks}
-                            // setShowLinks = {setShowLinks}
-                        >
-                        <img className = 'movie-img' src = {show.image.medium} alt = {show.name}/>
-                        </Link>
-                    </div>
+                        // return data
+                    }                
                 )
+                .map( (show) => {
+                
+                    return (
+                        <div                         
+                            key = {show.id}
+                            
+                        >
+                            <Link 
+                                
+                                to = {`${url}/${show.id}`}
+                                // onClick = {setShowLinks(false)}
+                                onClick = {toggleShowLinks}
+                                className = 'movie-card'
+                                // onClick = {setShowLinks(true)}
+                                // showLinks = {showLinks}
+                                // setShowLinks = {setShowLinks}
+                            >
+                            <img className = 'movie-img' src = {show.image.medium} alt = {show.name}/>
+                            </Link>
+                        </div>
+                    )
             
             })}
                 </div>
