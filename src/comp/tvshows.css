@@ -1,0 +1,41 @@
+.main-container {
+    border: 1px solid red;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    /* display: flex; */
+    border: 1px solid blue;
+    color: red;
+    text-align: center;
+}
+
+.search-bar {
+    border: 1px solid brown;
+    text-align: center;
+}
+.movie-container {
+    border: 1px solid green;
+
+    display: flex;
+    flex-wrap: wrap;    
+    justify-content: center;
+
+    padding: 5px;
+    /* margin: 4px auto; */
+}
+
+.movie-card {
+    /* border: 3px solid purple;
+    margin: 15px;
+    height: 100%; */
+
+}
+
+.movie-img {
+    border: 4px solid orange;
+    margin: 20px;
+    padding: 10px;
+}

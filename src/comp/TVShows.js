@@ -2,6 +2,8 @@ import React, {useState, useEffect, useRef} from 'react';
 import {Link, Switch, useHistory, useLocation, useRouteMatch, Route, useParams} from 'react-router-dom'
 import {tvShowData as tvData, tvShowData} from '../data/tvshows_data';
 
+import './tvshows.css';
+
 const TVshow = (props) => {
 
     const {showID} = useParams();
@@ -53,9 +55,11 @@ const TVShows = () => {
     const [showLinks, setShowLinks] = useState(true);
 
     const history  = useHistory();
-    const location = useLocation();
+    // const location = useLocation();
+
+    const {pathname} = useLocation();
     // console.log(' history >> ', history);
-    console.log(' location >> ', location.pathname);
+    // console.log(' location >> ', location.pathname);
 
     // console.log('url', url);
 
@@ -68,14 +72,14 @@ const TVShows = () => {
 
     useEffect( () => {
         
-        if (location.pathname === '/tvshows') {
+        if (pathname === '/tvshows') {
             // console.log("RETURN to TVSHOWS ");
             setShowLinks(true);
 
         
         }
     
-    },[location]);
+    },[pathname]);
 
 // {showLinks && tvData.map( (show) => {
 
@@ -99,28 +103,40 @@ const TVShows = () => {
     // console.log("sortedArr ", sortArr);
 
     return (
-        <div>
-            TVShows
+        <div className = 'main-container'>
+            <h1 className = 'title'> TVShows </h1>
+            <div className = 'search-bar'> 
+                <h2 className = 'search-bar'>
+                    Search Bar 
+                </h2>
+            </div>
+            
+                <div className = 'movie-container'>
             {showLinks && tvData.map( (show) => {
-  
+                
+                
                 return (
-                    <div 
+                    <div                         
                         key = {show.id}
-                        >
+                        
+                    >
                         <Link 
                             
                             to = {`${url}/${show.id}`}
                             // onClick = {setShowLinks(false)}
                             onClick = {toggleShowLinks}
+                            className = 'movie-card'
                             // onClick = {setShowLinks(true)}
                             // showLinks = {showLinks}
                             // setShowLinks = {setShowLinks}
-                        > {show.name} {show.id}</Link>
-
+                        >
+                        <img className = 'movie-img' src = {show.image.medium} alt = {show.name}/>
+                        </Link>
                     </div>
                 )
             
             })}
+                </div>
 
         <Switch>
             <Route exact path = {url}></Route>
