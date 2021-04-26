@@ -2,6 +2,9 @@ import React, {useState, useEffect, useRef} from 'react';
 import {Link, Switch, useHistory, useLocation, useRouteMatch, Route, useParams} from 'react-router-dom'
 import {tvShowData as tvData, tvShowData} from '../data/tvshows_data';
 
+
+import useFetch from '../customHooks/useFetch';
+
 import './tvshows.css';
 
 const TVshow = (props) => {
@@ -53,7 +56,13 @@ const TVShows = () => {
     const { url } = useRouteMatch();
 
     const [showLinks, setShowLinks] = useState(true);
-    const [searchVal, setSearchVal] = useState(null);
+    const [searchVal, setSearchVal] = useState('');
+
+
+    // return { data, isPending, error };
+    // const [tvDataAPI, isPending, data: shows] = useFetch('http://api.tvmaze.com/shows');
+
+    // console.log("tvDataAPI    ", tvDataAPI[0].name)
 
 
     const history  = useHistory();
@@ -138,8 +147,6 @@ const TVShows = () => {
                         else if (data.name.toLowerCase().includes(searchVal.toLowerCase()) ) {
                             return data                            
                         } 
-                        
-                        // return data
                     }                
                 )
                 .map( (show) => {
@@ -164,7 +171,8 @@ const TVShows = () => {
                         </div>
                     )
             
-            })}
+            }
+            )}
                 </div>
 
         <Switch>

@@ -37,15 +37,15 @@ const NavBar = () => {
     // console.log(" useHistory() pathname >> ", history.location.pathname );
     // console.log("useLocation >>>>>>  ", location.pathname);
 
-    useEffect( () => {
+    // useEffect( () => {
     
-        // console.log(" useHistory() obj >>>>>> ", history);
-        // console.log(" useHistory() pathname >> ", history.location.pathname );
-        // console.log("useLocation >>>>>>  ", location.pathname);
-        setHistoryLog(orig => [...orig, location.pathname]);
+    //     // console.log(" useHistory() obj >>>>>> ", history);
+    //     // console.log(" useHistory() pathname >> ", history.location.pathname );
+    //     // console.log("useLocation >>>>>>  ", location.pathname);
+    //     setHistoryLog(orig => [...orig, location.pathname]);
 
-    }, []);  //  [] tells causes only 1 renering after intial rendering
-
+    // }, []);  //  [] runs just single re-render after intial rendering
+    // // including  [locaton.pathname] adds to array twice
 
 
     return (
