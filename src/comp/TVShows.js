@@ -60,10 +60,12 @@ const TVShows = () => {
 
 
     // return { data, isPending, error };
-    // const [tvDataAPI, isPending, data: shows] = useFetch('http://api.tvmaze.com/shows');
+    const [tvDataAPI, isPending, error] = useFetch('http://api.tvmaze.com/shows');
 
-    // console.log("tvDataAPI    ", tvDataAPI[0].name)
-
+    // console.log("tvDataAPI    ", tvDataAPI)
+    // console.log(" tvDataAPI first >> " , tvDataAPI[0].name);
+    console.log(" isPending ", isPending)
+    console.log( " data ", error );
 
     const history  = useHistory();
     // const location = useLocation();
@@ -92,9 +94,9 @@ const TVShows = () => {
     
     },[pathname]);
 
-// {showLinks && tvData.map( (show) => {
 
-    tvData.sort((a,b) => {
+
+    tvDataAPI.sort((a,b) => {
     
         let aName = a.name.toLowerCase();
         let bName = b.name.toLowerCase();
@@ -137,43 +139,62 @@ const TVShows = () => {
                 
             
             }
-                <div className = 'movie-container'>
-            {showLinks && tvData
-                .filter( (data) => {
-
-                       if (searchVal === null) {
-                            return data
-                        }
-                        else if (data.name.toLowerCase().includes(searchVal.toLowerCase()) ) {
-                            return data                            
-                        } 
-                    }                
-                )
-                .map( (show) => {
-                
-                    return (
-                        <div                         
-                            key = {show.id}
-                            
-                        >
-                            <Link 
-                                
-                                to = {`${url}/${show.id}`}
-                                // onClick = {setShowLinks(false)}
-                                onClick = {toggleShowLinks}
-                                className = 'movie-card'
-                                // onClick = {setShowLinks(true)}
-                                // showLinks = {showLinks}
-                                // setShowLinks = {setShowLinks}
-                            >
-                            <img className = 'movie-img' src = {show.image.medium} alt = {show.name}/>
-                            </Link>
-                        </div>
-                    )
+            <div >
+            {isPending ? <div> LOADING </div> : 
             
-            }
-            )}
-                </div>
+
+                <div className = 'movie-container' > 
+                    
+                    
+   
+                            {showLinks && tvDataAPI
+                                .filter( (data) => {
+
+                                    if (searchVal === null) {
+                                            return data
+                                        }
+                                        else if (data.name.toLowerCase().includes(searchVal.toLowerCase()) ) {
+                                            return data                            
+                                        } 
+                                    }                
+                                )
+                                .map( (show) => {
+                                
+                                    return (
+                                        <div                         
+                                            key = {show.id}
+                                            
+                                        >
+                                            <Link 
+                                                
+                                                to = {`${url}/${show.id}`}
+                                                // onClick = {setShowLinks(false)}
+                                                onClick = {toggleShowLinks}
+                                                className = 'movie-card'
+                                                // onClick = {setShowLinks(true)}
+                                                // showLinks = {showLinks}
+                                                // setShowLinks = {setShowLinks}
+                                            >
+                                            <img className = 'movie-img' src = {show.image.medium} alt = {show.name}/>
+                                            </Link>
+                                        </div>
+                                    )
+                            
+                                }
+                            )}
+
+                    
+                    
+                    
+                    
+                   
+           
+                    
+
+                </div>}
+
+            </div> 
+
 
         <Switch>
             <Route exact path = {url}></Route>
