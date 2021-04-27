@@ -1,54 +1,55 @@
 import React, {useState, useEffect, useRef} from 'react';
 import {Link, Switch, useHistory, useLocation, useRouteMatch, Route, useParams} from 'react-router-dom'
-import {tvShowData as tvData, tvShowData} from '../data/tvshows_data';
+// import {tvShowData as tvData, tvShowData} from '../data/tvshows_data';
 
+import TVshow from '../comp/TVshow';
 
 import useFetch from '../customHooks/useFetch';
 
 import './tvshows.css';
 
-const TVshow = (props) => {
+// const TVshow = (props) => {
 
-    const {showID} = useParams();
-    const history  = useHistory();
-
-
-    // const show = tvShowData.find( s => s.id === Number(showID)); 
-
-    // console.log('show  ', show);
-    console.log('TVshow showID >>> ', showID);
-    // console.log(' history >> ', history);
+//     const {showID} = useParams();
+//     const history  = useHistory();
 
 
-    const backToList = () => {
+//     // const show = tvShowData.find( s => s.id === Number(showID)); 
+
+//     // console.log('show  ', show);
+//     console.log('TVshow showID >>> ', showID);
+//     // console.log(' history >> ', history);
+
+
+//     const backToList = () => {
     
-        props.toggleShowLinks();
-        // history.push('/tvshows')
-        history.goBack();
+//         props.toggleShowLinks();
+//         // history.push('/tvshows')
+//         history.goBack();
     
-    }
+//     }
 
-    return (
-        <div>
-            Show ID is {showID}
+//     return (
+//         <div>
+//             Show ID is {showID}
 
-            <button
-                // onClick = {() => history.push('/tvshows')}
-                onClick = {backToList}
-            > back to TV Show list </button>
+//             <button
+//                 // onClick = {() => history.push('/tvshows')}
+//                 onClick = {backToList}
+//             > back to TV Show list </button>
 
 
-            <Link 
-                to = '/tvshows'
-                // onClick = {backToList}
-                onClick = {props.toggleShowLinks}    
-                // onClick = {props.setShowLinks(true)}
-                > TV Show List </Link>
+//             <Link 
+//                 to = '/tvshows'
+//                 // onClick = {backToList}
+//                 onClick = {props.toggleShowLinks}    
+//                 // onClick = {props.setShowLinks(true)}
+//                 > TV Show List </Link>
 
-        </div>
-    )
+//         </div>
+//     )
 
-}
+// }
 
 
 const TVShows = () => {
