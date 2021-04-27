@@ -1,4 +1,7 @@
 import React, {useState, useEffect, useRef} from 'react';
+
+import { MDBSpinner } from 'mdb-react-ui-kit';
+
 import {Link, Switch, useHistory, useLocation, useRouteMatch, Route, useParams} from 'react-router-dom'
 // import {tvShowData as tvData, tvShowData} from '../data/tvshows_data';
 
@@ -147,7 +150,13 @@ const TVShows = () => {
             }
             <div >
             
-            {isPending ? <div> LOADING </div> : 
+            {isPending ? <div>
+                      <MDBSpinner color='primary'>
+                        <span className='visually-hidden'>Loading...</span>
+                    </MDBSpinner>
+             LOADING 
+             
+             </div> : 
             
 
                 <div className = 'movie-container' > 
