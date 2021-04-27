@@ -60,12 +60,17 @@ const TVShows = () => {
 
 
     // return { data, isPending, error };
-    const [tvDataAPI, isPending, error] = useFetch('http://api.tvmaze.com/shows');
+    // this is one way to rename item returned from useFetch. ARRAY must be returned and order is important
+    // const [tvDataAPI, isPending, error] = useFetch('http://api.tvmaze.com/shows');
 
-    // console.log("tvDataAPI    ", tvDataAPI)
+    // another way to return from useFetch
+    const {data: tvDataAPI, isPending, error} = useFetch('http://api.tvmaze.com/shows');
+
+    console.log("tvDataAPI    ", tvDataAPI);
+    // console.log(" data " , data);
     // console.log(" tvDataAPI first >> " , tvDataAPI[0].name);
     console.log(" isPending ", isPending)
-    console.log( " data ", error );
+    console.log( " error message returned from server", error );
 
     const history  = useHistory();
     // const location = useLocation();
@@ -96,7 +101,7 @@ const TVShows = () => {
 
 
 
-    tvDataAPI.sort((a,b) => {
+    tvDataAPI && tvDataAPI.sort((a,b) => {
     
         let aName = a.name.toLowerCase();
         let bName = b.name.toLowerCase();
@@ -140,6 +145,7 @@ const TVShows = () => {
             
             }
             <div >
+            
             {isPending ? <div> LOADING </div> : 
             
 
@@ -147,7 +153,7 @@ const TVShows = () => {
                     
                     
    
-                            {showLinks && tvDataAPI
+                            {showLinks && tvDataAPI && tvDataAPI
                                 .filter( (data) => {
 
                                     if (searchVal === null) {
@@ -192,7 +198,7 @@ const TVShows = () => {
                     
 
                 </div>}
-
+                
             </div> 
 
 
