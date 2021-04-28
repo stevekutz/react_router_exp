@@ -20,7 +20,7 @@ const TVshow = (props) => {
             {movieInfo && 
                 <div> 
                 
-                    <div> { movieInfo.name } </div>
+                    <div> Name: { movieInfo.name } </div>
                     <div dangerouslySetInnerHTML = {{ __html: movieInfo.summary }}/>
 
 

@@ -8,9 +8,11 @@ import Home from './comp/Home';
 import Products from './comp/Products';
 import Jokes from './comp/Jokes';
 import TVShows from './comp/TVShows';
+import TVshow from './comp/TVshow';
 import Fruits from './comp/Fruits';
 import Todos from './comp/Todos';
 import Protected from './comp/Protected';
+
 
 import {
     NavContainer,
@@ -37,7 +39,8 @@ function App() {
                     <Route path='/about' component = {About}/>
                     <Route path='/products'><Products /></Route>
                     <Route path='/jokes'><Jokes /></Route>
-                    <Route path='/tvshows'><TVShows /></Route>
+                    <Route exact path='/tvshows'><TVShows /></Route>
+                    <Route path = '/tvshows/:showID'><TVshow /></Route>
                     <Route path='/protected' ><Protected /></Route>
                     <Route path='/fruits'> <Fruits />  </Route>
                     <Route path = '/todos'> <Todos /> </Route>

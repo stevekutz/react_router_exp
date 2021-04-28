@@ -1,6 +1,6 @@
 import React, {useState, useRef, useEffect, useCallback} from 'react';
 // import NavBar from '../comp/Navigation';
-// import Joke from './Joke';
+import Joke from './Joke';
 import {Link, Switch, Route, useRouteMatch, useParams} from 'react-router-dom';
 import {jokes_ten as jokes} from '../data/jokes_data';
 import {
@@ -15,16 +15,16 @@ import {
 } from '../styles/jokes_styles';
 
 
-const Joke = ({jokes, yPosition, showPunchline, togglePunchline}) => {
+// const Joke = ({jokes, yPosition, showPunchline, togglePunchline}) => {
     
-    const {jokeid} = useParams();
-    console.log('jokeid >>>>>>>>>> ', jokeid);
+//     const {jokeid} = useParams();
+//     console.log('jokeid >>>>>>>>>> ', jokeid);
 
-    return (
-        <div> SHOW ME </div>
-    )
+//     return (
+//         <div> SHOW ME </div>
+//     )
 
-}    
+// }    
 
 
 // import {

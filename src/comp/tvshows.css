@@ -1,8 +1,9 @@
 .main-container {
-    border: 1px solid red;
+    /* border: 5px solid red; */
 
     display: flex;
     flex-direction: column;
+    height: 100vh;
 }
 
 .title {
@@ -50,7 +51,7 @@
 }
 
 .movie-container {
-    border: 1px solid green;
+    border: 5px solid green;
 
     display: flex;
     flex-wrap: wrap;    
@@ -71,4 +72,15 @@
     border: 4px solid orange;
     margin: 20px;
     padding: 10px;
+}
+
+.loading-container {
+    /* border: 3px solid yellow; */
+    display: flex;
+    justify-content: center;
+    /* margin: 0 auto; */
+    padding-top: 10%;
+    /* background: green; */
+    height: 100vh;
+    overflow: hidden;
 }

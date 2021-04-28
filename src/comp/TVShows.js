@@ -27,8 +27,8 @@ import './tvshows.css';
 //     const backToList = () => {
     
 //         props.toggleShowLinks();
-//         // history.push('/tvshows')
-//         history.goBack();
+//         history.push('/tvshows')
+//         // history.goBack();
     
 //     }
 
@@ -59,8 +59,9 @@ const TVShows = () => {
 
     const { url } = useRouteMatch();
 
-    const [showLinks, setShowLinks] = useState(true);
+    // const [showLinks, setShowLinks] = useState(null);
     const [searchVal, setSearchVal] = useState('');
+
 
 
     // return { data, isPending, error };
@@ -70,11 +71,11 @@ const TVShows = () => {
     // another way to return from useFetch
     const {data: tvDataAPI, isPending, error} = useFetch('http://api.tvmaze.com/shows');
 
-    console.log("tvDataAPI    ", tvDataAPI);
+    // console.log("tvDataAPI    ", tvDataAPI);
     // console.log(" data " , data);
     // console.log(" tvDataAPI first >> " , tvDataAPI[0].name);
-    console.log(" isPending ", isPending)
-    console.log( " error message returned from server", error );
+    // console.log(" isPending ", isPending)
+    // console.log( " error message returned from server", error );
 
     const history  = useHistory();
     // const location = useLocation();
@@ -85,19 +86,19 @@ const TVShows = () => {
 
     // console.log('url', url);
 
-
-
-    const toggleShowLinks = () => {
-        setShowLinks(!showLinks);
     
-    }
+
+    // const toggleShowLinks = () => {
+    //     setShowLinks(!showLinks);
+    
+    // }
 
     useEffect( () => {
         
         if (pathname === '/tvshows') {
-            // console.log("RETURN to TVSHOWS ");
-            setShowLinks(true);
-
+            console.log("RETURN to TVSHOWS ");
+            // setShowLinks(true);
+    
         
         }
     
@@ -124,10 +125,11 @@ const TVShows = () => {
 
     // console.log("sortedArr ", sortArr);
 
+
     return (
         <div className = 'main-container'>
+            
 
-            {showLinks && 
                 <div className = 'header-container'> 
                     <h1 className = 'title'> TVShows </h1>
                     <div className = 'search-container'> 
@@ -147,23 +149,21 @@ const TVShows = () => {
                 </div>
                 
             
-            }
-            <div >
+
             
-            {isPending ? <div>
-                      <MDBSpinner color='primary'>
-                        <span className='visually-hidden'>Loading...</span>
-                    </MDBSpinner>
-             LOADING 
-             
-             </div> : 
+            {isPending ? <div className = 'loading-container'>
+                            <MDBSpinner color='primary'>
+                                <span className='visually-hidden'>Loading...</span>
+                            </MDBSpinner>    
+                        </div> : 
             
 
                 <div className = 'movie-container' > 
+
                     
                     
    
-                            {showLinks && tvDataAPI && tvDataAPI
+                            {tvDataAPI && tvDataAPI
                                 .filter( (data) => {
 
                                     if (searchVal === null) {
@@ -184,12 +184,8 @@ const TVShows = () => {
                                             <Link 
                                                 
                                                 to = {`${url}/${show.id}`}
-                                                // onClick = {setShowLinks(false)}
-                                                onClick = {toggleShowLinks}
                                                 className = 'movie-card'
-                                                // onClick = {setShowLinks(true)}
-                                                // showLinks = {showLinks}
-                                                // setShowLinks = {setShowLinks}
+
                                             >
                                             <img className = 'movie-img' src = {show.image.medium} alt = {show.name}/>
                                             </Link>
@@ -209,21 +205,21 @@ const TVShows = () => {
 
                 </div>}
                 
-            </div> 
+            
 
 
-        <Switch>
-            <Route exact path = {url}></Route>
+
+            <Route exact path = {url}>
+
+            
+            </Route>    
 
             <Route exact path = {`${url}/:showID`}>
-                <TVshow 
-                    toggleShowLinks = {toggleShowLinks}
-                    setShowLinks = {setShowLinks}
-                />
+                <TVshow />
             </Route>
         
         
-        </Switch>
+        
         
 
 
